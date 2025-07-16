@@ -32,3 +32,12 @@ peer2.recv(&mut buffer)?;
 The encryption implementation was created without formal cryptography experience, though I believe it is generally sound.
 I use AES-128-GCM with ChaCha8 CSPRNG generated nonces where reuse is theoretically possible after ~2^96 nonces.
 You probably shouldn't put this into production.
+
+
+## Authors
+
+Made with ❤ by Lua ([foxgirl.dev](https://foxgirl.dev/))
+
+## License
+
+This crate is licensed under the [MIT License](LICENSE).

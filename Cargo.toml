@@ -7,6 +7,9 @@ version = "0.0.1"
 description = "Encrypted UDP messaging between two endpoints using AES-128-GCM"
 authors = ["Lua MacDougall <lua@foxgirl.dev>"]
 
+categories = ["network-programming", "cryptography"]
+keywords = ["tunnel", "point-to-point", "udp", "encryption"]
+
 repository = "https://github.com/luavixen/twopoint"
 
 license = "MIT"
