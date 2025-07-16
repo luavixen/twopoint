@@ -1,0 +1,23 @@
+
+[package]
+
+name = "twopoint"
+version = "0.0.1"
+
+description = "Connect two points via UDP and exchange binary messages"
+authors = ["Lua MacDougall <lua@foxgirl.dev>"]
+
+repository = "https://github.com/luavixen/twopoint"
+
+license = "MIT"
+
+edition = "2024"
+
+[dependencies]
+
+rand = "0.9"
+rand_chacha = "0.9"
+
+aes-gcm = "=0.11.0-rc.0"
+
+hex = "0.4"
