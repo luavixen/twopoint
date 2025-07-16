@@ -1,3 +1,32 @@
+//! Encrypted UDP messaging between two endpoints.
+//!
+//! This crate provides a simple interface for establishing encrypted UDP connections
+//! between peers using AES-128-GCM encryption. Each peer can connect to one remote
+//! endpoint at a time and exchange binary messages securely.
+//!
+//! # Encryption Overhead
+//!
+//! All messages have a 28-byte overhead (16-byte authentication tag + 12-byte nonce)
+//! added during encryption. Ensure receive buffers are large enough to accommodate
+//! this overhead plus your message data.
+//!
+//! # Security
+//!
+//! The encryption implementation was created without formal cryptography experience,
+//! though I believe it is generally sound. I use AES-128-GCM with ChaCha8 CSPRNG
+//! generated nonces where reuse is theoretically possible after ~2^96 nonces.
+//! You probably shouldn'tput this into production.
+//!
+//! # Core Types
+//!
+//! - [`Peer`] - A UDP endpoint that can send and receive encrypted messages
+//! - [`Key`] - A 128-bit encryption key for securing communications
+//!
+//! # Errors
+//!
+//! - [`CryptoError`] - Encryption/decryption failures
+//! - [`InvalidKeyError`] - Invalid key format or length
+
 mod util;
 mod error;
 mod key;

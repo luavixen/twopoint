@@ -1,5 +1,9 @@
 use std::io;
 
+/// Opaque error for encryption and decryption failures.
+///
+/// This error is returned when AES-GCM operations fail, typically due to
+/// corrupted data or authentication failures.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 pub struct CryptoError;
 
@@ -23,9 +27,12 @@ impl std::fmt::Display for CryptoError {
 
 impl std::error::Error for CryptoError {}
 
+/// Error returned when a key cannot be parsed or has an invalid format.
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub enum InvalidKeyError {
+  /// The key length is not exactly 16 bytes.
   InvalidLength,
+  /// The key contains invalid hexadecimal characters.
   InvalidHex(hex::FromHexError),
 }
 

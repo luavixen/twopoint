@@ -3,6 +3,10 @@ use std::str::FromStr;
 
 use crate::error::InvalidKeyError;
 
+/// A 128-bit encryption key for securing peer communications.
+///
+/// Keys can be created from byte arrays, byte slices, or hex strings.
+/// All cryptographic operations use AES-128-GCM encryption.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Key([u8; 16]);
 
@@ -23,6 +27,9 @@ impl TryFrom<&[u8]> for Key {
 impl FromStr for Key {
   type Err = InvalidKeyError;
 
+  /// Parses a key from a hex string.
+  ///
+  /// The string must represent exactly 16 bytes (32 hex characters).
   fn from_str(s: &str) -> Result<Self, Self::Err> {
     Self::try_from(hex::decode(s)?.as_ref())
   }

@@ -4,7 +4,7 @@
 name = "twopoint"
 version = "0.0.1"
 
-description = "Connect two points via UDP and exchange binary messages"
+description = "Encrypted UDP messaging between two endpoints using AES-128-GCM"
 authors = ["Lua MacDougall <lua@foxgirl.dev>"]
 
 repository = "https://github.com/luavixen/twopoint"
